@@ -167,7 +167,7 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 			this.World.Events.fire("event.paladins_scenario_intro");
 		}, null);
 	}
-
+///temporary player intro///
 	function onCombatFinished()
 	{
 		local roster = this.World.getPlayerRoster().getAll();

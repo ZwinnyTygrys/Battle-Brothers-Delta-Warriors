@@ -4,8 +4,8 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 	{
 		this.m.ID = "scenario.deltarune";
 		this.m.Name = "Delta Warriors";
-		this.m.Description = "[p=c][img]gfx/ui/events/dscenariopic.png[/img][/p][p]Kris, Susie and Ralsei awake in the new world, where they must fight for coin. Will a company from another dimension succeed?\n\n[color=#bcad8c]Heroes:[/color] Start with three unique characters with special abilities.\n[color=#bcad8c]Glorious Three:[/color] You can never have more than 12 men in your roster, and if any of your three starting men should die, your campaign ends.\n[color=#bcad8c]Outlaws:[/color] Start with bad relations to most human factions.[/p]";
-		this.m.Difficulty = 1;
+		this.m.Description = "[p=c][img]gfx/ui/events/dscenariopic.png[/img][/p][p]Kris, Susie and Ralsei awake in the new world, where they must fight for coin. Will a company from another dimension succeed?\n\n[color=#bcad8c]Heroes:[/color] Start with three unique characters with special abilities.\n[color=#bcad8c]Glorious Three:[/color] You can never have more than 12 men in your roster, and if any of your three starting men should die, your campaign ends.[/p]";
+		this.m.Difficulty = 2;
 		this.m.Order = 25;
 		this.m.IsFixedLook = true;
 	}
@@ -25,9 +25,6 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		{
 			local bro;
 			bro = roster.create("scripts/entity/tactical/player");
-			bro.setStartValuesEx([
-				"hedge_knight_background"
-			]);
 			bro.getSkills().removeByID("trait.survivor");
 			bro.getSkills().removeByID("trait.greedy");
 			bro.getSkills().removeByID("trait.loyal");
@@ -39,7 +36,7 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 			bro.m.HireTime = this.Time.getVirtualTimeF();
 			bro.m.PerkPoints = 0;
 			bro.m.LevelUps = 0;
-			bro.m.Level = 1;
+			bro.m.Level = 2;
 			bro.m.Talents = [];
 			bro.m.Attributes = [];
 		}
@@ -49,6 +46,10 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		local u;
 		bros[0].setName("Kris");
 		bros[0].setTitle("Knight");
+		bros[0].setStartValuesEx([
+			"kris_background"
+		]);
+		bros[0].getSkills().add(this.new("scripts/skills/traits/determined_trait"));
 		bros[0].getTalents().resize(this.Const.Attributes.COUNT, 0);
 		bros[0].getTalents()[this.Const.Attributes.MeleeDefense] = 2;
 		bros[0].getTalents()[this.Const.Attributes.Fatigue] = 2;
@@ -57,10 +58,13 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		local items = bros[0].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
-		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Offhand))
+		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Offhand));
 		items.equip(this.new("scripts/items/armor/mail_shirt"));
 		items.equip(this.new("scripts/items/weapons/longsword"));
 		bros[0].improveMood(0.75, "Eager to explore new world");
+		bros[1].setStartValuesEx([
+			"susie_background"
+		]);
 		bros[1].setName("Susie");
 		bros[1].setTitle("Dark Knight");
 		bros[1].getSkills().add(this.new("scripts/skills/actives/charge"));
@@ -68,15 +72,19 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		bros[1].getTalents().resize(this.Const.Attributes.COUNT, 0);
 		bros[1].getTalents()[this.Const.Attributes.Hitpoints] = 3;
 		bros[1].getTalents()[this.Const.Attributes.Fatigue] = 2;
-		bros[1].getTalents()[this.Const.Attributes.Bravery] = 2;
+		bros[1].getTalents()[this.Const.Attributes.MeleeSkill] = 3;
 		bros[1].fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - 1);
 		local items = bros[1].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
-		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Offhand))
+		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Offhand));
 		items.equip(this.new("scripts/items/armor/ragged_surcoat"));
 		items.equip(this.new("scripts/items/weapons/longaxe"));
-		bros[1].improveMood(0.75, "Eager to explore new world");
+		bros[1].improveMood(0.80, "Eager to explore new world");
+		bros[1].worsenMood(0.05, "Kris, where the fuck are we?!");
+		bros[2].setStartValuesEx([
+			"ralsei_background"
+		]);
 		bros[2].setName("Ralsei");
 		bros[2].setTitle("Dark Prince");
 		bros[2].getTalents().resize(this.Const.Attributes.COUNT, 0);
@@ -92,11 +100,11 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		items.equip(this.new("scripts/items/helmets/witchhunter_hat"));
 		items.equip(this.new("scripts/items/armor/thick_dark_tunic"));
 		bros[2].improveMood(0.75, "Eager to explore new world");
-		bros[0].getBackground().m.RawDescription = "{%fullname% thinks muscles make for glory. Wrong. Captain, it is I, " + bros[2].getName() + ", who commands the ladies of this realm. Need not ask me how. Behold! Look at it! Look at the size of it! Yeah. That\'s what I thought. Fools, train all you want, you can\'t have this!}";
+		bros[0].getBackground().m.RawDescription = "{%fullname% is the most powerfull human who ever lived! " + bros[2].getName() + ", ... do you even saw any other human? " + bros[1].getName() + " Think positively! Besides, we have to present ourselves! }";
 		bros[0].getBackground().buildDescription(true);
-		bros[1].getBackground().m.RawDescription = "{%fullname% is not the best warrior here, let\'s be clear. Captain, look at my muscles, is it not I, " + bros[0].getName() + ", who commands the greatest reward of life: the fear of one\'s own enemies! Look, if I lather a little and catch the light, the muscles gleam. Would it not be that the heavens were mistakened for above, when all the women say they find them right here, particularly here, upon my glorious pecs?}";
+		bros[1].getBackground().m.RawDescription = "{I'll RIP your heart out of your chest and eat it for breakfast. So you better let me hit you.}";
 		bros[1].getBackground().buildDescription(true);
-		bros[2].getBackground().m.RawDescription = "{Why are you looking at %fullname%? Captain, it is I, " + bros[1].getName() + ", who is your greatest gladiator. I am the one who swept the legs of a lindwurm and choked it out with its own tail! What you bastards say? You call that a tall tale? Pah! \'Tis a horizontal lizard at best.}";
+		bros[2].getBackground().m.RawDescription = "{It all started in my kingdom when I met... uh, ok Susie, I'll summarize everything in one sentence. }";
 		bros[2].getBackground().buildDescription(true);
 		this.World.Assets.m.BusinessReputation = 50;
 		this.World.Assets.getStash().resize(this.World.Assets.getStash().getCapacity() - 9);
@@ -164,10 +172,10 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		this.Time.scheduleEvent(this.TimeUnit.Real, 1000, function ( _tag )
 		{
 			this.Music.setTrackList(this.Const.Music.IntroTracks, this.Const.Music.CrossFadeTime);
-			this.World.Events.fire("event.paladins_scenario_intro");
+			this.World.Events.fire("event.deltarune_intro");
 		}, null);
 	}
-///temporary player intro///
+
 	function onCombatFinished()
 	{
 		local roster = this.World.getPlayerRoster().getAll();

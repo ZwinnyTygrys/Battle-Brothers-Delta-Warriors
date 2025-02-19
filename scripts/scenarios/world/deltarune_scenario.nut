@@ -51,8 +51,8 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		]);
 		bros[0].getSkills().add(this.new("scripts/skills/traits/determined_trait"));
 		bros[0].getTalents().resize(this.Const.Attributes.COUNT, 0);
-		bros[0].getTalents()[this.Const.Attributes.MeleeDefense] = 2;
-		bros[0].getTalents()[this.Const.Attributes.Fatigue] = 2;
+		bros[0].getTalents()[this.Const.Attributes.MeleeDefense] = 3;
+		bros[0].getTalents()[this.Const.Attributes.Fatigue] = 3;
 		bros[0].getTalents()[this.Const.Attributes.MeleeSkill] = 3;
 		bros[0].fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - 1);
 		local items = bros[0].getItems();
@@ -67,8 +67,8 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		]);
 		bros[1].setName("Susie");
 		bros[1].setTitle("Dark Knight");
-		bros[1].getSkills().add(this.new("scripts/skills/actives/charge"));
-		bros[1].getSkills().add(this.new("scripts/skills/actives/line_breaker"));
+		bros[1].getSkills().add(this.new("scripts/skills/actives/Scharge"));
+		bros[1].getSkills().add(this.new("scripts/skills/actives/susie_push"));
 		bros[1].getTalents().resize(this.Const.Attributes.COUNT, 0);
 		bros[1].getTalents()[this.Const.Attributes.Hitpoints] = 3;
 		bros[1].getTalents()[this.Const.Attributes.Fatigue] = 2;
@@ -87,6 +87,7 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		]);
 		bros[2].setName("Ralsei");
 		bros[2].setTitle("Dark Prince");
+		bros[2].getSkills().add(this.new("scripts/skills/actives/heal_prayer_skill"));
 		bros[2].getTalents().resize(this.Const.Attributes.COUNT, 0);
 		bros[2].getTalents()[this.Const.Attributes.MeleeDefense] = 2;
 		bros[2].getTalents()[this.Const.Attributes.Initiative] = 3;
@@ -100,7 +101,7 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		items.equip(this.new("scripts/items/helmets/witchhunter_hat"));
 		items.equip(this.new("scripts/items/armor/thick_dark_tunic"));
 		bros[2].improveMood(0.75, "Eager to explore new world");
-		bros[0].getBackground().m.RawDescription = "{%fullname% is the most powerfull human who ever lived! " + bros[2].getName() + ", ... do you even saw any other human? " + bros[1].getName() + " Think positively! Besides, we have to present ourselves! }";
+		bros[0].getBackground().m.RawDescription = "{%fullname% is the best friend! }";
 		bros[0].getBackground().buildDescription(true);
 		bros[1].getBackground().m.RawDescription = "{I'll RIP your heart out of your chest and eat it for breakfast. So you better let me hit you.}";
 		bros[1].getBackground().buildDescription(true);

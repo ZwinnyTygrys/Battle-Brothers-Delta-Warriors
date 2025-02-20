@@ -23,7 +23,7 @@ this.Scharge <- this.inherit("scripts/skills/skill", {
 		];
 		this.m.Type = this.Const.SkillType.Active;
 		this.m.Order = this.Const.SkillOrder.UtilityTargeted;
-		this.m.IsSerialized = false;
+		this.m.IsSerialized = true;
 		this.m.IsActive = true;
 		this.m.IsTargeted = true;
 		this.m.IsTargetingActor = false;

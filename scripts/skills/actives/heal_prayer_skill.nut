@@ -5,8 +5,8 @@ this.heal_prayer_skill <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "actives.heal_prayer";
 		this.m.Name = "Heal Prayer";
 		this.m.Description = "Heavenly light restores 25 HP.";
-		this.m.Icon = "skills/active_96.png";
-		this.m.IconDisabled = "skills/active_96_sw.png";
+		this.m.Icon = "skills/prayer_heal.png";
+		this.m.IconDisabled = "skills/prayer_heal_sw.png";
 		this.m.Overlay = "";
 		this.m.SoundOnUse = [
 			"sounds/enemies/unhold_regenerate_01.wav"
@@ -80,22 +80,22 @@ this.heal_prayer_skill <- this.inherit("scripts/skills/skill", {
 	function onUse( _user, _targetTile )
 	{
 		local t = _targetTile.getEntity();
-		local healthMissing = actor.getHitpointsMax() - actor.getHitpoints();
-		local healthAdded = this.Math.min(healthMissing, 20);
+		local healthMissing = t.getHitpointsMax() - t.getHitpoints();
+		local healthAdded = this.Math.min(healthMissing, 25);
 
 		if (healthAdded <= 0)
 		{
 			return;
 		}
 
-		actor.setHitpoints(actor.getHitpoints() + healthAdded);
-		actor.setDirty(true);
+		t.setHitpoints(t.getHitpoints() + healthAdded);
+		t.setDirty(true);
 
-		if (!actor.isHiddenToPlayer())
+		if (!t.isHiddenToPlayer())
 		{
-			this.Tactical.spawnIconEffect("status_effect_79", actor.getTile(), this.Const.Tactical.Settings.SkillIconOffsetX, this.Const.Tactical.Settings.SkillIconOffsetY, this.Const.Tactical.Settings.SkillIconScale, this.Const.Tactical.Settings.SkillIconFadeInDuration, this.Const.Tactical.Settings.SkillIconStayDuration, this.Const.Tactical.Settings.SkillIconFadeOutDuration, this.Const.Tactical.Settings.SkillIconMovement);
-			this.Sound.play("sounds/enemies/unhold_regenerate_01.wav", this.Const.Sound.Volume.RacialEffect * 1.25, actor.getPos());
-			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " heals for " + healthAdded + " points");
+			this.Tactical.spawnIconEffect("status_effect_79", t.getTile(), this.Const.Tactical.Settings.SkillIconOffsetX, this.Const.Tactical.Settings.SkillIconOffsetY, this.Const.Tactical.Settings.SkillIconScale, this.Const.Tactical.Settings.SkillIconFadeInDuration, this.Const.Tactical.Settings.SkillIconStayDuration, this.Const.Tactical.Settings.SkillIconFadeOutDuration, this.Const.Tactical.Settings.SkillIconMovement);
+			this.Sound.play("sounds/enemies/unhold_regenerate_01.wav", this.Const.Sound.Volume.RacialEffect * 1.25, t.getPos());
+			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(t) + " heals for " + healthAdded + " points");
 		}
 	}
 

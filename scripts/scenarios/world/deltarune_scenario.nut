@@ -50,6 +50,7 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 			"kris_background"
 		]);
 		bros[0].getSkills().add(this.new("scripts/skills/traits/determined_trait"));
+		bros[0].getSkills().add(this.new("scripts/skills/traits/deathwish_trait"));
 		bros[0].getTalents().resize(this.Const.Attributes.COUNT, 0);
 		bros[0].getTalents()[this.Const.Attributes.MeleeDefense] = 3;
 		bros[0].getTalents()[this.Const.Attributes.Fatigue] = 3;
@@ -67,6 +68,8 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		]);
 		bros[1].setName("Susie");
 		bros[1].setTitle("Dark Knight");
+		bros[1].getSkills().add(this.new("scripts/skills/traits/bloodthirsty_trait"));
+		bros[1].getSkills().add(this.new("scripts/skills/traits/impatient_trait"));
 		bros[1].getSkills().add(this.new("scripts/skills/actives/Scharge"));
 		bros[1].getSkills().add(this.new("scripts/skills/actives/susie_push"));
 		bros[1].getTalents().resize(this.Const.Attributes.COUNT, 0);
@@ -87,6 +90,8 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		]);
 		bros[2].setName("Ralsei");
 		bros[2].setTitle("Dark Prince");
+		bros[2].getSkills().add(this.new("scripts/skills/traits/bright_trait"));
+		bros[2].getSkills().add(this.new("scripts/skills/traits/optimist_trait"));
 		bros[2].getSkills().add(this.new("scripts/skills/actives/heal_prayer_skill"));
 		bros[2].getTalents().resize(this.Const.Attributes.COUNT, 0);
 		bros[2].getTalents()[this.Const.Attributes.MeleeDefense] = 2;

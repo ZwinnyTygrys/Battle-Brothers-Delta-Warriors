@@ -4,7 +4,7 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 	{
 		this.m.ID = "scenario.deltarune";
 		this.m.Name = "Delta Warriors";
-		this.m.Description = "[p=c][img]gfx/ui/events/dscenariopic.png[/img][/p][p]Kris, Susie and Ralsei awake in the new world, where they must fight for coin. Will a company from another dimension succeed?\n\n[color=#bcad8c]Heroes:[/color] Start with three unique characters with special abilities.\n[color=#bcad8c]Glorious Three:[/color] You can never have more than 12 men in your roster, and if any of your three starting men should die, your campaign ends.[/p]";
+		this.m.Description = "[p=c][img]gfx/ui/events/dscenariopic.png[/img][/p][p]Kris, Susie and Ralsei awake in the new world, full of castles, monsters, crypts and enemies. Will a company from another dimension succeed?\n\n[color=#bcad8c]Heroes:[/color] Start with three unique characters with special abilities.\n[color=#bcad8c]Glorious Three:[/color] You can never have more than 12 men in your roster, and if any of your three starting men should die, your campaign ends.[/p]";
 		this.m.Difficulty = 2;
 		this.m.Order = 25;
 		this.m.IsFixedLook = true;
@@ -36,7 +36,7 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 			bro.m.HireTime = this.Time.getVirtualTimeF();
 			bro.m.PerkPoints = 0;
 			bro.m.LevelUps = 0;
-			bro.m.Level = 2;
+			bro.m.Level = 1;
 			bro.m.Talents = [];
 			bro.m.Attributes = [];
 		}
@@ -182,6 +182,11 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		}, null);
 	}
 
+	function onInit()
+	{
+		this.World.Assets.m.BrothersMax = 12;
+	}
+	
 	function onCombatFinished()
 	{
 		local roster = this.World.getPlayerRoster().getAll();

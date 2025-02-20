@@ -6,7 +6,7 @@ this.deltarune_intro_event <- this.inherit("scripts/events/event", {
 		this.m.IsSpecial = true;
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_127.png[/img] Another day and another world. During trip to theduring a trip to the castle ruins, you found yourself in another world again. However, unlike previous adventures, you did not find yourself in the Dark World. After getting to know the area for a while, you discovered that you could go home at any time. You decided to stay for a while until you get bored.",
+			Text = "[img]gfx/ui/events/event_127.png[/img] Another day and another world. During the trip to the castle ruins, you found yourself once again in another world. However, unlike previous adventures, you did not find yourself in the Dark World. After scouting the area, you decided to go on an adventure. The portal by which you arrived still works and you can return at any time. You decided to stay for a while until you get bored.",
 			Banner = "",
 			List = [],
 			Characters = [],

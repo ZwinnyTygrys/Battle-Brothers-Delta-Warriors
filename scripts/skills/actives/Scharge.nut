@@ -6,7 +6,7 @@ this.Scharge <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.Scharge";
 		this.m.Name = "Susie Charge";
-		this.m.Description = "Charge will move sister next to your enemy and possibly stun him if not repelled (has a range of 2 tiles and the height level difference can't be higher than 1). The chance to stun starts at 100% and is reduced by the amount of Melee Defense from shields and Shieldwall. Can't jump over your brother";
+		this.m.Description = "Charge will move sister next to your enemy and possibly stun him if not repelled (has a range of 2 tiles and the height level difference can't be higher than 1). The chance to stun starts at 100% and is reduced by the amount of Melee Defense from shields and Shieldwall.";
 		this.m.Icon = "skills/susie_charge.png";
 		this.m.IconDisabled = "skills/susie_charge_sw.png";
 		this.m.Overlay = "";

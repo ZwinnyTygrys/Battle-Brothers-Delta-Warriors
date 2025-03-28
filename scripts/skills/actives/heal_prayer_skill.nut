@@ -7,7 +7,7 @@ this.heal_prayer_skill <- this.inherit("scripts/skills/skill", {
 		this.m.Description = "Heavenly light restores 25 HP.";
 		this.m.Icon = "skills/prayer_heal.png";
 		this.m.IconDisabled = "skills/prayer_heal_sw.png";
-		this.m.Overlay = "";
+		this.m.Overlay = "prayer_heal";
 		this.m.SoundOnUse = [
 			"sounds/enemies/unhold_regenerate_01.wav"
 		];
@@ -93,7 +93,7 @@ this.heal_prayer_skill <- this.inherit("scripts/skills/skill", {
 
 		if (!t.isHiddenToPlayer())
 		{
-			this.Tactical.spawnIconEffect("status_effect_79", t.getTile(), this.Const.Tactical.Settings.SkillIconOffsetX, this.Const.Tactical.Settings.SkillIconOffsetY, this.Const.Tactical.Settings.SkillIconScale, this.Const.Tactical.Settings.SkillIconFadeInDuration, this.Const.Tactical.Settings.SkillIconStayDuration, this.Const.Tactical.Settings.SkillIconFadeOutDuration, this.Const.Tactical.Settings.SkillIconMovement);
+			this.Tactical.spawnIconEffect("prayer_heal", t.getTile(), this.Const.Tactical.Settings.SkillIconOffsetX, this.Const.Tactical.Settings.SkillIconOffsetY, this.Const.Tactical.Settings.SkillIconScale, this.Const.Tactical.Settings.SkillIconFadeInDuration, this.Const.Tactical.Settings.SkillIconStayDuration, this.Const.Tactical.Settings.SkillIconFadeOutDuration, this.Const.Tactical.Settings.SkillIconMovement);
 			this.Sound.play("sounds/enemies/unhold_regenerate_01.wav", this.Const.Sound.Volume.RacialEffect * 1.25, t.getPos());
 			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(t) + " heals for " + healthAdded + " points");
 		}

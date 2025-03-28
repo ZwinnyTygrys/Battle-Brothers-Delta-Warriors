@@ -7,16 +7,16 @@ this.moss_finding_event <- this.inherit("scripts/events/event", {
 	{
 		this.m.ID = "moss.finding_food";
 		this.m.Title = "Along the way...";
-		this.m.Cooldown = 1.0 * this.World.getTime().SecondsPerDay;
+		this.m.Cooldown = 5.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_10.png[/img]{As you help %otherguy% get his boot out of the mud, %kris% comes out of the bushes with what must be nearly a dozen rabbits strung together. He sets them down and starts to untie them. The little bunnies - eyes wide, horrified in the end - all look quite tasty. The hunter grabs one by its neck and twists its body in a circle before pushing all its guts out in one swift motion. He repeats this process until every rabbit has been slaughtered. As he wipes his hand on %otherguy%\'s cloak, the hunter points to the mound of emptied bunnies at his feet.%SPEECH_ON%That there is the eating pile.%SPEECH_OFF%He then points to the lump of rabbit guts.%SPEECH_ON%That there is not the eating pile. Got it? Good.%SPEECH_OFF%  | %kris% ran on ahead of the party a few hours ago and just now you catch back up to him.}",
+			Text = "[img]gfx/ui/events/event_10.png[/img]While traveling in the forest, you saw Kris collecting moss and eating it.%otherguy% also sees it but ignores the whole process of ingestion. Kris then carries the bag with the rest of the moss for the rest to consume.",
 			Image = "",
 			List = [],
 			Characters = [],
 			Options = [
 				{
-					Text = "Good eats.",
+					Text = "I hope they won't get poisoned.",
 					function getResult( _event )
 					{
 						return 0;
@@ -99,7 +99,7 @@ this.moss_finding_event <- this.inherit("scripts/events/event", {
 			if (bro.getID() != this.m.Kris.getID())
 			{
 				this.m.OtherGuy = bro;
-				this.m.Score = candidates.len() * 10;
+				this.m.Score = candidates.len() * 20;
 				break;
 			}
 		}

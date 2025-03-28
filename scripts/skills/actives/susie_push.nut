@@ -7,7 +7,7 @@ this.susie_push <- this.inherit("scripts/skills/skill", {
 		this.m.Description = "Line Breaker will knock a target 1 tile back, never misses and the target suffers 10 Fatigue, removes Shieldwall, Spearwall and Riposte when applied (has a range of 1 tile) ";
 		this.m.Icon = "skills/susie_push.png";
 		this.m.IconDisabled = "skills/susie_push_sw.png";
-		this.m.Overlay = "";
+		this.m.Overlay = "susie_push";
 		this.m.SoundOnUse = [
 			"sounds/enemies/orc_linebreaker_01.wav",
 			"sounds/enemies/orc_linebreaker_02.wav",

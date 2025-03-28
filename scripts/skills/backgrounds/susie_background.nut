@@ -7,8 +7,8 @@ this.susie_background <- this.inherit("scripts/skills/backgrounds/character_back
 		this.m.Name = "Susie";
 		this.m.Icon = "ui/backgrounds/Susie_background.png";
 		this.m.BackgroundDescription = "Susie, Monster from prophecy";
-		this.m.GoodEnding = " %name% returned to home in one piece. With money, she could do whatever she wanted and eat whatever she wanted.";
-		this.m.BadEnding = "%name% returned to home in one piece but at what cost? She still has no money, and she can't drink alcohol like she could in another dimension.";
+		this.m.GoodEnding = "%name% returned to home in one piece. With money, she could do whatever she wanted and eat whatever she wanted.";
+		this.m.BadEnding = "%name% returned to home in one piece. With money, she could do whatever she wanted and eat whatever she wanted.";
 		this.m.HiringCost = 5;
 		this.m.DailyCost = 10;
 		this.m.Excluded = [

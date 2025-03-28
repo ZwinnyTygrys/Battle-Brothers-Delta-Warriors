@@ -53,8 +53,8 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		bros[0].getSkills().add(this.new("scripts/skills/traits/deathwish_trait"));
 		bros[0].getTalents().resize(this.Const.Attributes.COUNT, 0);
 		bros[0].getTalents()[this.Const.Attributes.MeleeDefense] = 3;
-		bros[0].getTalents()[this.Const.Attributes.Fatigue] = 3;
-		bros[0].getTalents()[this.Const.Attributes.MeleeSkill] = 3;
+		bros[0].getTalents()[this.Const.Attributes.Fatigue] = 2;
+		bros[0].getTalents()[this.Const.Attributes.MeleeSkill] = 2;
 		bros[0].fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - 1);
 		local items = bros[0].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
@@ -106,11 +106,11 @@ this.deltarune_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		items.equip(this.new("scripts/items/helmets/witchhunter_hat"));
 		items.equip(this.new("scripts/items/armor/thick_dark_tunic"));
 		bros[2].improveMood(0.75, "Eager to explore new world");
-		bros[0].getBackground().m.RawDescription = "{Look, Kris may be a freak who does bizarre things, but he can be relied on, except at times when he can't be relied on.}";
+		bros[0].getBackground().m.RawDescription = "{Kris, Human from prophecy}";
 		bros[0].getBackground().buildDescription(true);
-		bros[1].getBackground().m.RawDescription = "{I'll RIP your heart out of your chest and eat it for breakfast. So you better let me hit you. Otherwise I'll get you.}";
+		bros[1].getBackground().m.RawDescription = "{Susie, Monster from prophecy}";
 		bros[1].getBackground().buildDescription(true);
-		bros[2].getBackground().m.RawDescription = "{I help my friends in need and rule the dark world. If you need help then I will be happy to help you. }";
+		bros[2].getBackground().m.RawDescription = "{Ralsei, Prince from prophecy}";
 		bros[2].getBackground().buildDescription(true);
 		this.World.Assets.m.BusinessReputation = 50;
 		this.World.Assets.getStash().resize(this.World.Assets.getStash().getCapacity() - 9);
